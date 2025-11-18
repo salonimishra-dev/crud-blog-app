@@ -4,7 +4,7 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; 
 
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +18,11 @@ let posts = [
   { id: uuidv4(), username: "Saloni", content: "First sample post!" },
   { id: uuidv4(), username: "Guest", content: "Welcome to my blog!" }
 ];
+
+// Redirect root to /posts
+app.get("/", (req, res) => {
+  res.redirect("/posts");
+});
 
 // HOME — All Posts
 app.get("/posts", (req, res) => {
@@ -39,18 +44,21 @@ app.post("/posts", (req, res) => {
 // Show Single Post
 app.get("/posts/:id", (req, res) => {
   const post = posts.find(p => p.id === req.params.id);
+  if (!post) return res.status(404).send("Post not found");
   res.render("show", { post });
 });
 
 // Edit Form
 app.get("/posts/:id/edit", (req, res) => {
   const post = posts.find(p => p.id === req.params.id);
+  if (!post) return res.status(404).send("Post not found");
   res.render("edit", { post });
 });
 
 // Update Post
 app.patch("/posts/:id", (req, res) => {
   const post = posts.find(p => p.id === req.params.id);
+  if (!post) return res.status(404).send("Post not found");
   post.content = req.body.content;
   res.redirect("/posts");
 });
@@ -61,4 +69,5 @@ app.delete("/posts/:id", (req, res) => {
   res.redirect("/posts");
 });
 
-app.listen(port, () => console.log(`Server running at ${port}`));
+// Start server
+app.listen(port, () => console.log(`Server running at port ${port}`));
