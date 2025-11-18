@@ -1,0 +1,26 @@
+<%- include("include/header") %>
+
+<!-- TOP ROW -->
+<div class="top-row">
+  <h2>All Posts</h2>
+  <a class="btn" href="/posts/new">Create New Post</a>
+</div>
+
+<!-- POSTS GRID -->
+<div class="post-container">
+  <% posts.forEach(post => { %>
+    <div class="post-box">
+      <h3>@<%= post.username %></h3>
+      <p><%= post.content %></p>
+
+      <a class="btn" href="/posts/<%= post.id %>">View</a>
+      <a class="btn" href="/posts/<%= post.id %>/edit">Edit</a>
+
+      <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" style="display: inline">
+        <button class="btn" style="background: #e63946">Delete</button>
+      </form>
+    </div>
+  <% }) %>
+</div>
+
+<%- include("include/footer") %>

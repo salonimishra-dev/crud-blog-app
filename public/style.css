@@ -1,0 +1,137 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fce4ec;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: #e91e63;
+  padding: 18px 30px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Top row: heading + create button */
+.top-row {
+  width: 90%;
+  margin: 25px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Buttons */
+button,
+.btn {
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button:hover,
+.btn:hover {
+  background: #c2185b;
+}
+
+/* Grid for posts */
+.post-container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 20px;
+}
+
+/* Card */
+.post-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease;
+}
+
+.post-box:hover {
+  transform: translateY(-3px);
+}
+
+/* Inputs */
+textarea,
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Page center alignment for show & edit pages */
+.page-container {
+  width: 90%;
+  max-width: 700px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Main card wrapper */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Full width button */
+.full-btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  display: block;
+}
+
+/* Headings inside cards */
+.card h2 {
+  margin-bottom: 15px;
+  color: #e91e63;
+  text-align: center;
+}
+
+/* Textarea styling */
+.card textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 15px;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Post content box inside card */
+.card .post-box {
+  background: #fce4ec;
+  border-left: 4px solid #e91e63;
+  padding: 15px;
+  border-radius: 10px;
+}

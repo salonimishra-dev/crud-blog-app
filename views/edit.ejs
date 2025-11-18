@@ -1,0 +1,14 @@
+<%- include("include/header") %>
+
+<div class="page-container">
+  <div class="card">
+    <h2>Edit Post</h2>
+
+    <form method="POST" action="/posts/<%= post.id %>?_method=PATCH">
+      <textarea name="content" rows="7"><%= post.content %></textarea>
+      <button class="btn full-btn">Update</button>
+    </form>
+  </div>
+</div>
+
+<%- include("include/footer") %>

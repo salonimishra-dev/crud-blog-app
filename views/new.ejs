@@ -1,0 +1,13 @@
+<%- include("include/header") %>
+
+<h2>Create Post</h2>
+
+<form method="POST" action="/posts">
+  <input type="text" name="username" placeholder="Enter username" required>
+
+  <textarea name="content" rows="5" placeholder="Write something..." required></textarea>
+
+  <button class="btn">Create</button>
+</form>
+
+<%- include("include/footer") %>

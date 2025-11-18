@@ -1,0 +1,15 @@
+<%- include("include/header") %>
+
+<div class="page-container">
+  <div class="card">
+    <h2>@<%= post.username %></h2>
+
+    <div class="post-box" style="margin-top: 15px;">
+      <p><%= post.content %></p>
+    </div>
+
+    <a class="btn full-btn" href="/posts">Back</a>
+  </div>
+</div>
+
+<%- include("include/footer") %>
